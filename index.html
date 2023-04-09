@@ -16,15 +16,21 @@
             <li><a href="#">######</a></li>
         </ul>
     </header>
-    <main>
-        <div id="msg-error"></div>
+    <main id="main">
         <form>
             <label for="titulo">Título</label>
-            <input type="text" name="text" id="titulo" maxlength="15">
-            <label for="text">texto</label>
+            <input type="text" name="titulo" id="titulo" maxlength="15">
+            <label for="text">Texto</label>
             <input type="text" name="text" id="text" maxlength="35">
             <button type="submit" id="submit">Agregar</button>
         </form>
+        <section class="title">
+            <div >
+                <p>Lista de tareas</p>
+            </div>
+        </section>
+        <div id="msg-error"></div>
+        <div id="msg-container-empty"></div>
         <ul id="list-items"></ul>
     </main>
     <footer></footer>

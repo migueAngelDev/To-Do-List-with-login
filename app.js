@@ -1,6 +1,8 @@
 const itemsContainer = document.getElementById("list-items");
 const agregarTarea = document.getElementById("submit");
 const msgError = document.getElementById("msg-error");
+const containerMain = document.getElementById("main");
+const msgContainerEmpty = document.getElementById("msg-container-empty");
 
 agregarTarea.addEventListener("click", function (e) {
 	e.preventDefault();
@@ -15,13 +17,21 @@ agregarTarea.addEventListener("click", function (e) {
 	};
 
 	if (!campoTarea || !campoTitulo) {
+		const containerError = document.createElement("div");
+		msgError.appendChild(containerError);
+
 		const msg = document.createElement("p");
 		msg.innerHTML = "Error, el campo necesita tener algo";
-		msgError.appendChild(msg);
+		containerError.appendChild(msg);
 		setTimeout(() => {
-			msgError.removeChild(msg);
+			msgError.removeChild(containerError);
 		}, 3000);
 	} else {
+		containerMain.style.justifyContent = "normal";
+		msgContainerEmpty.style.display = "none";
+
+		// const datosEncontrados = JSON.parse(localStorage.getItem("tarea"));
+
 		items.push(campos);
 		localStorage.setItem("tarea", JSON.stringify(items));
 
@@ -53,14 +63,15 @@ window.addEventListener("load", function () {
 	const datosEncontrados = JSON.parse(localStorage.getItem("tarea"));
 	if (!datosEncontrados) {
 		const containerEmpty = document.createElement("section");
-		msgError.appendChild(containerEmpty);
-		msgError.classList.add("error-container-empty");
+		msgContainerEmpty.appendChild(containerEmpty);
 
-		const msgContainerEmpty = document.createElement("p");
-		msgContainerEmpty.innerHTML = "No tienes ninguna tarea por el momento.";
-		containerEmpty.appendChild(msgContainerEmpty);
+		const msgEmpty = document.createElement("p");
+		msgEmpty.innerHTML = "No tienes ninguna tarea por el momento.";
+		containerEmpty.appendChild(msgEmpty);
 	} else {
 		const items = [...datosEncontrados];
+		containerMain.style.justifyContent = "normal";
+		msgContainerEmpty.style.display = "none";
 
 		items.forEach((campos) => {
 			const wrapper = document.createElement("li");
