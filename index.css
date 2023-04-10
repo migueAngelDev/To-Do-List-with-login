@@ -1,8 +1,9 @@
 *{
-    margin: 0;
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
 }
 
 body{
@@ -12,7 +13,6 @@ body{
 
 header{
     height: 80px;
-    /* border: 1px solid #000; */
     position: fixed;
     top: 0;
     width:100%;
@@ -22,6 +22,7 @@ header{
     align-items: center;
     font-size: 1em;
     background-color: #ffffff57;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     backdrop-filter: blur(10px);
 }
 
@@ -48,21 +49,35 @@ a{
 
 /* MAIN */
 
+
 main{
-    border-top: 1px solid #ccc;
+    display: flex;
+    margin: 80px 0;
     border-bottom: 1px solid #000;
     min-height: 80vh;
-    margin: 100px 0;
     background-color: #f8fafb;
+}
+
+
+#aside{
+    width:20%;
+}
+
+.header-info{
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    padding: 0 10px;
+}
+
+#main{
+    width: 80%;
+    border-right: 1px solid #ccc;
 }
 
 
 #msg-error{
-    /* height: 150px; */
-    /* background-color: #000; */
     flex-direction: column;
     display: flex;
     align-items: stretch;
@@ -90,8 +105,6 @@ main{
     align-items: center;
     font-size: 1.3em;
     font-style: italic;
-    /* width: 300px; */
-    /* border: 1px solid #000; */
 }
 
 
@@ -114,7 +127,7 @@ main{
 
 form{
     border-bottom: 1px solid #ccc;
-    height: 80px;
+    height: 140px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -126,7 +139,7 @@ form label{
     margin: 0 20px;
 }
 
-form #titulo,  #text{
+form #titulo, #text{
     height: 30px;
     width: 200px;
     border-radius: 3px;
@@ -138,6 +151,17 @@ form #submit {
     padding:10px 20px;
     cursor: pointer;
     background-color: #3b34f4;
+    border: none;
+    color: #fff;
+    border-radius: 3px;
+    font-size: 1em;
+    margin-left: 15px;
+}
+
+form #submit-delete {
+    padding:10px 20px;
+    cursor: pointer;
+    background-color: #f43434;
     border: none;
     color: #fff;
     border-radius: 3px;
@@ -161,14 +185,13 @@ form #submit {
     display: flex;
     flex-wrap: wrap-reverse;
     gap: 20px;
-    padding: 20px 50px;
+    justify-content: center;
 }
 
 .wrapper{
     margin-top: 50px;
     border-radius: 10px;
-    height:180px;
-    /* border: 1px solid #000; */
+    height:210px;
     width: 320px;
     background-color: #fff;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
@@ -184,6 +207,8 @@ form #submit {
 }
 
 .container-text{
-    /* border: 1px solid #000; */
+    overflow-wrap: anywhere;
     padding: 10px;
+    font-size: 1.3em;
+    text-align: center;
 }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./index.css">
     <title>Blog de notas</title>
 </head>
 <body>
@@ -16,13 +16,15 @@
             <li><a href="#">######</a></li>
         </ul>
     </header>
-    <main id="main">
+    <main>
+        <section id="main">
         <form>
             <label for="titulo">Título</label>
             <input type="text" name="titulo" id="titulo" maxlength="15">
             <label for="text">Texto</label>
-            <input type="text" name="text" id="text" maxlength="35">
+            <input type="text" name="text" id="text" maxlength="150">
             <button type="submit" id="submit">Agregar</button>
+            <button type="submit" id="submit-delete">Borrar tareas</button>
         </form>
         <section class="title">
             <div >
@@ -32,8 +34,21 @@
         <div id="msg-error"></div>
         <div id="msg-container-empty"></div>
         <ul id="list-items"></ul>
+    </section>
+    <section id="aside">
+        <section class="header-info">
+        <div id="saludarUsuario">
+        </div>
+        <div>
+            <p>
+                inserte img
+            </p>
+        </div>
+    </section>
+    </section>
     </main>
     <footer></footer>
-    <script src="app.js"></script>
+    <script src="index.js"></script>
+<script src="saludo.js"></script>
 </body>
 </html>

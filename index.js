@@ -1,7 +1,7 @@
 const itemsContainer = document.getElementById("list-items");
 const agregarTarea = document.getElementById("submit");
+const borrarTareas = document.getElementById("submit-delete");
 const msgError = document.getElementById("msg-error");
-const containerMain = document.getElementById("main");
 const msgContainerEmpty = document.getElementById("msg-container-empty");
 
 agregarTarea.addEventListener("click", function (e) {
@@ -27,10 +27,8 @@ agregarTarea.addEventListener("click", function (e) {
 			msgError.removeChild(containerError);
 		}, 3000);
 	} else {
-		containerMain.style.justifyContent = "normal";
 		msgContainerEmpty.style.display = "none";
-
-		// const datosEncontrados = JSON.parse(localStorage.getItem("tarea"));
+		itemsContainer.style.display = "flex";
 
 		items.push(campos);
 		localStorage.setItem("tarea", JSON.stringify(items));
@@ -55,8 +53,15 @@ agregarTarea.addEventListener("click", function (e) {
 		text.innerHTML = campos.texto;
 		containerText.appendChild(text);
 	}
+});
 
-	console.log(items);
+borrarTareas.addEventListener("click", function () {
+	let confirmacion = confirm("Confirmar");
+	if (confirmacion) {
+		localStorage.removeItem("tarea");
+		itemsContainer.style.display = "none";
+		msgContainerEmpty.style.display = "flex";
+	}
 });
 
 window.addEventListener("load", function () {
@@ -70,7 +75,6 @@ window.addEventListener("load", function () {
 		containerEmpty.appendChild(msgEmpty);
 	} else {
 		const items = [...datosEncontrados];
-		containerMain.style.justifyContent = "normal";
 		msgContainerEmpty.style.display = "none";
 
 		items.forEach((campos) => {
